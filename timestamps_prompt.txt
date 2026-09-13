@@ -1,0 +1,4 @@
+On Youtube you can use gemini to generate timestamps of a video 
+
+Prompt:
+just give me title and timestamps of this video nothing else 

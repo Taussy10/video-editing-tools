@@ -41,7 +41,9 @@ if ($keepSilenceInput -eq "") { $keepSilence = 150 } else { $keepSilence = [int]
 # -- Step 3: Build output path -----------------------------------------------
 $audioDir  = Split-Path $audioPath -Parent
 $audioFile = Split-Path $audioPath -Leaf
-$outputPath = Join-Path $audioDir "remove_silence_$audioFile"
+$basename  = [System.IO.Path]::GetFileNameWithoutExtension($audioFile)
+$extension = [System.IO.Path]::GetExtension($audioFile)
+$outputPath = Join-Path $audioDir "${basename}-rs${extension}"
 
 Write-Host ""
 Write-Host "File      : $audioPath"     -ForegroundColor Gray
@@ -55,7 +57,13 @@ Write-Host ""
 Write-Host "Processing audio..." -ForegroundColor Yellow
 
 $scriptPath = Join-Path $PSScriptRoot "remove_silence.py"
-python "$scriptPath" "$audioPath" "$outputPath" --min_silence $minSilence --threshold $threshold --keep_silence $keepSilence
+$pythonExe = "E:\Tausif\Python\python.exe"
+
+if (Test-Path $pythonExe) {
+    & $pythonExe "$scriptPath" "$audioPath" "$outputPath" --min_silence $minSilence --threshold $threshold --keep_silence $keepSilence
+} else {
+    python "$scriptPath" "$audioPath" "$outputPath" --min_silence $minSilence --threshold $threshold --keep_silence $keepSilence
+}
 
 Write-Host ""
 if ($LASTEXITCODE -eq 0) {

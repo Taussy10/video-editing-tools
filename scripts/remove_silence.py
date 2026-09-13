@@ -39,8 +39,17 @@ def remove_silence(input_path, output_path, min_silence_len=500, silence_thresh=
         
     # Export
     print(f"Exporting to: {output_path}")
-    export_format = "wav" if output_path.lower().endswith('.wav') else "mp3"
-    combined.export(output_path, format=export_format)
+    export_format = output_path.split('.')[-1].lower()
+    if export_format not in ['wav', 'mp3', 'ogg', 'flac', 'm4a', 'mp4']:
+        export_format = 'mp3'
+    if export_format == 'm4a':
+        export_format = 'ipod' # pydub specific format for m4a
+
+    try:
+        combined.export(output_path, format=export_format)
+    except Exception as e:
+        print(f"Export error: {e}. You may need to install ffmpeg.")
+        return False
     print("Done!")
     return True
 
