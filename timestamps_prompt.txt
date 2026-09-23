@@ -1,4 +1,18 @@
-On Youtube you can use gemini to generate timestamps of a video 
+Try methods one by one -> One of them will definitely work. 
+
+1. On You Tube you can use Gemini to generate timestamps of a video 
+2. If doesn't work from your video description you can get timestamps with timings -> paste that to Chat GPT for timestamps
+3. You have timestamps of video from Antigravity CLI tool.
 
 Prompt:
-just give me title and timestamps of this video nothing else 
+Give me title , timestamps and each facts timestamps(including Intro and Outro) of this video nothing else 
+In this format -> 
+00:00 Intro — 30 Insane Facts About Nigeria 
+00:16 #30 — Lake on a Mountain 
+00:34 #29 — Two Springs 00:54 
+#28 — The 8,000-Year-Old Canoe 
+01:10 #27 — Mysterious Stone Faces 01:34 
+#26 — The Cave of 10 Tunnels 01:59 
+#1 — Forests That Grow in Salt Water 
+10:41 Outro 
+

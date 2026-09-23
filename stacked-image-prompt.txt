@@ -1,0 +1,6 @@
+Will make this prompt later -> 
+ this is the script for generating stacked
+  images E:\Tausif\video-editing-tools\scripts\generate-stacked-images.ps1 so, I want you to convert all
+  images in stacked one E:\Tausif\animations\1-nigeria-facts-2\public\images btw there should be only stacked
+  images remove other images the input that we gave and each image name should be input image that i gave btw
+  for that after creating image you have to remove that input image and leave the output stacked image  .
